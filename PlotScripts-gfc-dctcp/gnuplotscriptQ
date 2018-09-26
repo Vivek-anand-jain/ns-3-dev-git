@@ -1,0 +1,24 @@
+set xrange [3:10]
+set terminal pngcairo enhanced color lw 2 size 800,600 font 'Arial-Bold'
+set output "queue-0.png"
+set xlabel "Time (sec)"
+set ylabel "Queue occupancy (No. of packets)"
+set key outside;
+set key right top;
+plot "queue-0.plotme" title "T1" with lines lw 1.5
+
+set terminal pngcairo enhanced color lw 2 size 800,600 font 'Arial-Bold'
+set output "queue-1.png"
+set xlabel "Time (sec)"
+set ylabel "Queue occupancy (No. of packets)"
+set key outside;
+set key right top;
+plot "queue-1.plotme" title "Scorpion" with lines lw 1.5
+
+set terminal pngcairo enhanced color lw 2 size 800,600 font 'Arial-Bold'
+set output "queue-2.png"
+set xlabel "Time (sec)"
+set ylabel "Queue occupancy (No. of packets)"
+set key outside;
+set key right top;
+plot "queue-2.plotme" title "T2" with lines lw 1.5

@@ -98,6 +98,11 @@ TypeId PiQueueDisc::GetTypeId (void)
                    BooleanValue (false),
                    MakeBooleanAccessor (&PiQueueDisc::m_useEcn),
                    MakeBooleanChecker ())
+    .AddTraceSource ("Probability",
+                     "Probability of PiQueueDisc",
+                     MakeTraceSourceAccessor (&PiQueueDisc::m_dropProb),
+                     "ns3::TracedValueCallback::Double")
+
   ;
 
   return tid;

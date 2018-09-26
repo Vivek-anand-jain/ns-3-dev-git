@@ -201,6 +201,10 @@ FlowMonitor::ReportLastRx (Ptr<FlowProbe> probe, uint32_t flowId, uint32_t packe
 
   Time now = Simulator::Now ();
   Time delay = (now - tracked->second.firstSeenTime);
+  std::ofstream myfile;
+  myfile.open ("flow" + std::to_string(flowId) + ".txt", std::fstream::in | std::fstream::out | std::fstream::app);
+  myfile<<now.GetSeconds()<<" "<<delay.GetSeconds()*1000<<"\n";
+  myfile.close();
   probe->AddPacketStats (flowId, packetSize, delay);
 
   FlowStats &stats = GetStatsForFlow (flowId);

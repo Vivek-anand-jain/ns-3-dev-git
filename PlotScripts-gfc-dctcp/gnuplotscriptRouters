@@ -1,0 +1,16 @@
+set xrange [3:10]
+set terminal pngcairo enhanced color lw 2 size 800,600 font 'Arial-Bold'
+set output "TP-Switches.png"
+set xlabel "Time (sec)"
+set ylabel "Link Utilization (Gbps)"
+set key outside;
+set key right top;
+plot "TP-T1.plotme" title "T1" with lines lw 1.5,"TP-Scorp.plotme" title "Scorpion" with lines lw 1.5,"TP-T2.plotme" title "T2" with lines lw 1.5
+
+set terminal pngcairo enhanced color lw 2 size 800,600 font 'Arial-Bold'
+set output "TP-Switches-Percent.png"
+set xlabel "Time (sec)"
+set ylabel "Link Utilization (%)"
+set key outside;
+set key right top;
+plot "TP-T1.plotme" using ($1):($2/0.1) title "T1" with lines lw 1.5,"TP-Scorp.plotme" using ($1):($2/0.1) title "Scorpion" with lines lw 1.5,"TP-T2.plotme" using ($1):($2/0.01) title "T2" with lines lw 1.5

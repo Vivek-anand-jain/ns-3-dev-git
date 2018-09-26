@@ -75,6 +75,7 @@ public:
     QUEUE_DISC_MODE_BYTES,       /**< Use number of bytes for maximum queue disc size */
   };
 
+//  TracedCallback<double, double> m_dropProbTrace;
   /**
    * \brief Set the operating mode of this queue disc.
    *
@@ -167,7 +168,7 @@ private:
   bool m_useEcn;                                //!< True if ECN is used (packets are marked instead of being dropped)
 
   // ** Variables maintained by PI
-  double m_dropProb;                            //!< Variable used in calculation of drop probability
+  TracedValue<double> m_dropProb;               //!< Variable used in calculation of drop probability
   uint32_t m_qOld;                              //!< Old value of queue length
   EventId m_rtrsEvent;                          //!< Event used to decide the decision of interval of drop probability calculation
   Ptr<UniformRandomVariable> m_uv;              //!< Rng stream
